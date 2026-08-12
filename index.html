@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Save the Date | Daniela &amp; José</title>
+<meta name="description" content="Nos casamos el 13 de marzo de 2027. Ubicación, itinerario, dresscode, mesa de regalos y confirmación de asistencia." />
+<meta property="og:title" content="Save the Date | Daniela & José" />
+<meta property="og:description" content="Nos casamos el 13 de marzo de 2027. Toca para ver los detalles y confirmar tu asistencia." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1400&q=80" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+<!-- ============================================================
+     1) EDITA AQUÍ TODA LA INFORMACIÓN DE LA BODA
+     ============================================================ -->
+<script>
+const BODA = {
+  novia: "Daniela",
+  novio: "José",
+  parejaCorta: "Daniela & José",
+  fechaTexto: "13 de marzo de 2027",
+  fechaISO: "2027-03-13T15:00:00",           // AAAA-MM-DDTHH:MM:SS
+  frase: "Faltan solo unos días para el mejor día de nuestras vidas ✨",
+  whatsapp: "50498049723",
+
+  rsvpURL: "https://script.google.com/macros/s/AKfycbxGR0W0kSjmVpVmfsq7F_YHqm2S_LDp-_aa7SsILwZjZ4xgnNOJBRhf6_RYL21rxJzO/exec",
+
+  musica: "https://www.dropbox.com/scl/fi/zzemd01pqf58cidlkhasr/L.O.V.E-Frank-Sinatra.mp3?rlkey=lzu9cq3g308ku2vru2yfvsaap&st=lqya97rw&raw=1",
+
+  padres: ["Edwin Fajardo & Mirian Romero", "Mario Guzman & Deris Padilla"],
+
+  historia: "Dos caminos se cruzaron, dos corazones encontraron su lugar y desde entonces comenzó esta hermosa aventura. Hoy queremos celebrar el amor, la complicidad y todos los sueños que construiremos juntos.",
+
+  ceremonia: {
+    titulo: "Ceremonia Religiosa",
+    lugar: "Basílica de Nuestra Señora de Suyapa",
+    hora: "3:30 PM",
+    mapsLink: "https://maps.app.goo.gl/oT4J9yYJ27TLkvjA8",
+    mapsEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3869.9454045386638!2d-87.15996492624689!3d14.080400189603546!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f6fbcb46189a67b%3A0x3ea25a43ce2571e5!2sBas%C3%ADlica%20de%20Nuestra%20Se%C3%B1ora%20de%20Suyapa!5e0!3m2!1ses!2shn!4v1774405157292!5m2!1ses!2shn"
+  },
+
+  recepcion: {
+    titulo: "Recepción",
+    lugar: "Colegio Médico de Honduras",
+    hora: "6:30 PM",
+    mapsLink: "https://maps.app.goo.gl/MGSgiXXJbNVMZYkX9",
+    mapsEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3870.0385460449806!2d-87.20187202624697!3d14.074901189733705!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f6fbd37a94e5011%3A0xd193ebe90e40eaad!2sColegio%20M%C3%A9dico%20de%20Honduras!5e0!3m2!1ses!2shn!4v1782669246858!5m2!1ses!2shn"
+  },
+
+  itinerario: [
+    { icono: "💍", nombre: "Ceremonia", hora: "3:30 PM" },
+    { icono: "🫂", nombre: "Recepción", hora: "6:30 PM" },
+    { icono: "🍽", nombre: "Cena",      hora: "8:00 PM" },
+    { icono: "🎉", nombre: "Fiesta",    hora: "9:00 PM" },
+    { icono: "👋🏼", nombre: "Salida",   hora: "12:00 AM" }
+  ],
+
+  dresscode: {
+    titulo: "Traje Formal y Elegante",
+    nota: "Nos reservamos los siguientes colores:",
+    coloresReservados: [
+      { nombre: "Terracota",   hex: "#c46a4a" },
+      { nombre: "Blanco",      hex: "#ffffff" },
+      { nombre: "Beige",       hex: "#e7d8c5" },
+      { nombre: "Verde Olivo", hex: "#6b7b3f" }
+    ]
+  },
+
+  regalos: {
+    intro: [
+      "Nos llenará de alegría contar con su presencia en nuestra celebración.",
+      "Si desean hacernos un obsequio pueden hacerlo en efectivo o por transferencia."
+    ],
+    cuentas: [
+      { cliente: "JOSE LEONARDO FAJARDO ROMERO", banco: "BAC", numero: "748362371" },
+      { cliente: "DANIELA MARIA GUZMAN PADILLA", banco: "BAC", numero: "743092511" }
+    ],
+    nota: "También tenemos apartados en tiendas Diunsa a nombre de Daniela y José."
+  },
+
+  cierre: "Gracias por acompañarnos en uno de los momentos más importantes de nuestras vidas. Estamos contando los días para compartir esta celebración con ustedes 🤍",
+
+  galeria: [
+    "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80",
+    "https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=1200&q=80",
+    "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=80",
+    "https://images.unsplash.com/photo-1529636798458-92182e662485?auto=format&fit=crop&w=1200&q=80"
+  ],
+
+  fondoPortada: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1400&q=80",
+  fondoHero:    "https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=1400&q=80"
+};
+</script>
+
+<!-- ============================================================
+     2) COLORES Y ESTILOS
+     ============================================================ -->
+<style>
+:root{
+  --terracota:#c46a4a; --terracota-hover:#aa593f; --dorado:#d6b36a;
+  --arena:#f7f3ef; --texto:#3a2f2a; --suave:#7c6a60; --olivo:#6b7b3f;
+  --borde:#e8ded4; --radio:1rem;
+  --sombra:0 6px 20px rgba(58,47,42,.08);
+  --sombra-alta:0 14px 40px rgba(58,47,42,.18);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--arena);color:var(--texto);font-family:"Poppins",system-ui,sans-serif;font-weight:300;overflow-x:hidden}
+.script{font-family:"Great Vibes",cursive;font-weight:400}
+img{max-width:100%;display:block}
+button{font-family:inherit}
+
+/* PORTADA */
+#portada{position:fixed;inset:0;z-index:60;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:20px;color:#fff;background-size:cover;background-position:center}
+#portada h1{font-size:clamp(3rem,12vw,4.5rem);margin:0}
+#portada p{letter-spacing:.2em;margin:.5rem 0 0}
+.btn{display:inline-block;border:0;cursor:pointer;border-radius:999px;background:var(--terracota);color:#fff;
+  padding:.85rem 2rem;font-size:.95rem;text-decoration:none;transition:.25s;box-shadow:var(--sombra-alta)}
+.btn:hover{background:var(--terracota-hover);transform:translateY(-2px)}
+.btn.sec{background:#fff;color:var(--texto);border:1px solid var(--borde);box-shadow:none}
+.btn:disabled{opacity:.6;cursor:default}
+#portada .btn{margin-top:2rem;padding:1rem 2.5rem}
+
+/* HERO */
+header.hero{min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;color:#fff;padding:20px;background-size:cover;background-position:center}
+header.hero .tag{letter-spacing:.35em;font-size:.8rem}
+header.hero h1{font-family:"Great Vibes",cursive;font-size:clamp(3rem,12vw,4.5rem);margin:.4rem 0 0}
+header.hero .frase{max-width:32rem;font-size:.9rem;opacity:.92}
+
+/* CONTADOR */
+.contador{display:flex;gap:.6rem;margin-top:1.8rem;flex-wrap:wrap;justify-content:center}
+.contador div{background:rgba(255,255,255,.18);backdrop-filter:blur(6px);border-radius:.9rem;padding:.7rem 1rem;min-width:74px}
+.contador b{display:block;font-size:1.5rem;font-weight:500}
+.contador span{font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;opacity:.9}
+
+/* SECCIONES */
+section{max-width:64rem;margin:0 auto;padding:4rem 1.25rem;text-align:center;
+  opacity:0;transform:translateY(28px);transition:opacity .9s ease,transform .9s ease}
+section.visible{opacity:1;transform:none}
+h2{color:var(--terracota);font-weight:500;font-size:clamp(1.35rem,4.5vw,1.9rem);margin:0}
+.linea{width:5rem;height:3px;border-radius:99px;margin:.8rem auto 0;background:linear-gradient(90deg,var(--dorado),var(--terracota))}
+.sub{color:var(--suave);font-size:.9rem;max-width:34rem;margin:1rem auto 0}
+.padres p{font-family:"Great Vibes",cursive;font-size:clamp(1.7rem,7vw,2.3rem);margin:.35rem 0}
+
+/* TARJETAS */
+.grid{display:grid;gap:1.1rem;margin-top:2.5rem;grid-template-columns:1fr}
+@media(min-width:640px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1024px){.grid{grid-template-columns:repeat(3,1fr)}}
+.tarjeta{background:#fff;border:1px solid var(--borde);border-radius:1.25rem;padding:1.75rem 1.25rem;
+  box-shadow:var(--sombra);display:flex;flex-direction:column;align-items:center;gap:.5rem;transition:.25s}
+.tarjeta:hover{transform:translateY(-4px);box-shadow:var(--sombra-alta)}
+.tarjeta .ico{font-size:2rem}
+.tarjeta h3{margin:0;font-weight:500;font-size:1.05rem}
+.tarjeta .res{color:var(--suave);font-size:.85rem;margin:0}
+.tarjeta .btn{margin-top:.9rem;padding:.6rem 1.6rem;font-size:.85rem}
+
+/* MODAL */
+.overlay{position:fixed;inset:0;z-index:70;background:rgba(30,22,18,.55);display:none;
+  align-items:center;justify-content:center;padding:1rem}
+.overlay.abierto{display:flex}
+.modal{background:var(--arena);border-radius:1.25rem;max-width:32rem;width:100%;max-height:88svh;overflow:auto;
+  padding:1.75rem 1.4rem;position:relative;box-shadow:var(--sombra-alta);animation:sube .25s ease}
+@keyframes sube{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.modal h3{color:var(--terracota);text-align:center;margin:0 0 1rem;font-weight:500;font-size:1.25rem}
+.cerrar{position:absolute;top:.7rem;right:.7rem;border:0;background:#fff;border-radius:999px;width:2rem;height:2rem;
+  cursor:pointer;font-size:1rem;color:var(--suave);box-shadow:var(--sombra)}
+.modal p{margin:.35rem 0}
+.modal .centro{text-align:center}
+.tenue{color:var(--suave);font-size:.88rem}
+iframe{width:100%;height:220px;border:0;border-radius:1rem;margin:1rem 0}
+.fila{display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center;margin-top:.6rem}
+.item{display:flex;justify-content:space-between;align-items:center;background:#fff;border-left:4px solid var(--terracota);
+  border-radius:.8rem;padding:.75rem 1rem;margin-bottom:.5rem}
+.cuenta{background:#fff;border-left:4px solid var(--terracota);border-radius:.9rem;padding:1rem;margin:.7rem 0;text-align:left;font-size:.9rem}
+.colores{display:flex;flex-wrap:wrap;gap:1.2rem;justify-content:center;margin-top:1rem}
+.colores div{text-align:center;font-size:.72rem;color:var(--suave)}
+.colores i{display:block;width:3rem;height:3rem;border-radius:999px;border:1px solid var(--borde);margin-bottom:.4rem;box-shadow:var(--sombra)}
+
+/* FORM */
+form{display:flex;flex-direction:column;gap:.7rem}
+input,select{border:1px solid var(--borde);background:#fff;border-radius:.8rem;padding:.8rem 1rem;font-size:.9rem;
+  font-family:inherit;color:var(--texto);outline:none}
+input:focus,select:focus{border-color:var(--terracota)}
+
+/* GALERIA */
+.galeria{display:grid;gap:.8rem;grid-template-columns:repeat(2,1fr);margin-top:2rem}
+@media(min-width:768px){.galeria{grid-template-columns:repeat(4,1fr)}}
+.galeria img{border-radius:1rem;height:220px;width:100%;object-fit:cover;box-shadow:var(--sombra);transition:.3s}
+.galeria img:hover{transform:scale(1.03)}
+
+footer{background:#fff;text-align:center;padding:2.5rem 1rem;color:var(--suave);font-size:.85rem;margin-top:2rem}
+
+/* FLOTANTES */
+.flotante{position:fixed;bottom:1.25rem;z-index:50;width:3.4rem;height:3.4rem;border-radius:999px;border:0;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;font-size:1.3rem;color:#fff;box-shadow:var(--sombra-alta);
+  text-decoration:none;transition:.2s}
+.flotante:hover{transform:scale(1.07)}
+#btnMusica{right:1.25rem;background:var(--terracota)}
+#btnWhats{left:1.25rem;background:var(--olivo)}
+
+/* PETALOS */
+.petalo{position:fixed;top:-40px;font-size:1.1rem;pointer-events:none;z-index:5;animation:caer linear forwards;opacity:.85}
+@keyframes caer{to{transform:translateY(105svh) rotate(360deg);opacity:0}}
+@media(prefers-reduced-motion:reduce){.petalo{display:none}section{opacity:1;transform:none}}
+</style>
+</head>
+
+<body>
+<audio id="audio" loop></audio>
+
+<!-- PORTADA -->
+<div id="portada">
+  <h1 class="script" id="p-nombres"></h1>
+  <p id="p-fecha"></p>
+  <button class="btn" id="btnAbrir">Abrir Invitación</button>
+</div>
+
+<!-- HERO -->
+<header class="hero" id="hero">
+  <p class="tag">SAVE THE DATE</p>
+  <h1 id="h-nombres"></h1>
+  <p class="frase" id="h-frase"></p>
+  <div class="contador" id="contador"></div>
+</header>
+
+<!-- PADRES -->
+<section>
+  <h2>Con la bendición de Dios y de nuestros padres</h2><div class="linea"></div>
+  <div class="padres" id="padres" style="margin-top:1.6rem"></div>
+</section>
+
+<!-- TARJETAS -->
+<section id="detalles">
+  <h2>Todos los detalles</h2><div class="linea"></div>
+  <p class="sub">Toca “Ver más” en cada tarjeta para conocer la información completa.</p>
+  <div class="grid" id="tarjetas"></div>
+</section>
+
+<!-- HISTORIA -->
+<section>
+  <h2>Nuestra Historia</h2><div class="linea"></div>
+  <p style="max-width:42rem;margin:1.8rem auto 0;line-height:2" id="historia"></p>
+</section>
+
+<!-- GALERIA -->
+<section>
+  <h2>Nuestros Momentos</h2><div class="linea"></div>
+  <div class="galeria" id="galeria"></div>
+</section>
+
+<!-- CIERRE -->
+<section>
+  <h2>Cuenta regresiva para nuestro gran día</h2><div class="linea"></div>
+  <p class="sub" id="cierre"></p>
+</section>
+
+<footer id="footer"></footer>
+
+<button class="flotante" id="btnMusica" aria-label="Reproducir música">🎵</button>
+<a class="flotante" id="btnWhats" target="_blank" rel="noreferrer" aria-label="Escribir por WhatsApp">💬</a>
+
+<!-- MODAL -->
+<div class="overlay" id="overlay">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitulo">
+    <button class="cerrar" id="btnCerrar" aria-label="Cerrar">✕</button>
+    <h3 id="modalTitulo"></h3>
+    <div id="modalCuerpo"></div>
+  </div>
+</div>
+
+<!-- ============================================================
+     3) LÓGICA (normalmente no necesitas tocar nada de aquí)
+     ============================================================ -->
+<script>
+const $ = (s) => document.querySelector(s);
+const esc = (t) => String(t).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const wa = "https://wa.me/" + BODA.whatsapp;
+
+/* Textos base */
+$("#p-nombres").textContent = BODA.parejaCorta;
+$("#p-fecha").textContent   = BODA.fechaTexto;
+$("#h-nombres").textContent = BODA.parejaCorta;
+$("#h-frase").textContent   = BODA.frase;
+$("#historia").textContent  = BODA.historia;
+$("#cierre").textContent    = BODA.cierre;
+$("#footer").textContent    = `Con amor, ${BODA.novio} & ${BODA.novia} 💍`;
+$("#audio").src = BODA.musica;
+$("#btnWhats").href = wa;
+document.title = `Save the Date | ${BODA.parejaCorta}`;
+$("#portada").style.backgroundImage = `linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),url(${BODA.fondoPortada})`;
+$("#hero").style.backgroundImage    = `linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.4)),url(${BODA.fondoHero})`;
+$("#padres").innerHTML  = BODA.padres.map(p => `<p>${esc(p)}</p>`).join("");
+$("#galeria").innerHTML = BODA.galeria.map((f,i) => `<img src="${f}" loading="lazy" alt="Foto ${i+1} de ${esc(BODA.parejaCorta)}">`).join("");
+
+/* Contador */
+const objetivo = new Date(BODA.fechaISO).getTime();
+function tick(){
+  const d = Math.max(0, objetivo - Date.now());
+  const dias = Math.floor(d/86400000), h = Math.floor(d/3600000)%24, m = Math.floor(d/60000)%60, s = Math.floor(d/1000)%60;
+  const p = (n) => String(n).padStart(2,"0");
+  $("#contador").innerHTML = [[p(dias),"Días"],[p(h),"Horas"],[p(m),"Min"],[p(s),"Seg"]]
+    .map(([v,l]) => `<div><b>${v}</b><span>${l}</span></div>`).join("");
+}
+tick(); setInterval(tick, 1000);
+
+/* Tarjetas + contenido de cada modal */
+const lugarHTML = (x) => `
+  <p class="centro" style="font-size:1.05rem">${esc(x.lugar)}</p>
+  <p class="centro tenue">${esc(BODA.fechaTexto)} · ${esc(x.hora)}</p>
+  <iframe loading="lazy" title="Mapa de ${esc(x.lugar)}" src="${x.mapsEmbed}" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
+  <div class="fila">
+    <a class="btn" href="${x.mapsLink}" target="_blank" rel="noreferrer">Cómo llegar</a>
+    <button class="btn sec" data-copiar="${esc(x.lugar)}">Copiar dirección</button>
+  </div>`;
+
+const TARJETAS = [
+  { ico:"⛪", titulo:BODA.ceremonia.titulo, resumen:`${BODA.ceremonia.lugar} · ${BODA.ceremonia.hora}`, cuerpo:() => lugarHTML(BODA.ceremonia) },
+  { ico:"🥂", titulo:BODA.recepcion.titulo, resumen:`${BODA.recepcion.lugar} · ${BODA.recepcion.hora}`, cuerpo:() => lugarHTML(BODA.recepcion) },
+  { ico:"🕒", titulo:"Itinerario", resumen:"El orden del gran día", cuerpo:() =>
+      BODA.itinerario.map(e => `<div class="item"><span>${e.icono} ${esc(e.nombre)}</span><span class="tenue">${esc(e.hora)}</span></div>`).join("") },
+  { ico:"👗", titulo:"Dresscode", resumen:BODA.dresscode.titulo, cuerpo:() => `
+      <p class="centro" style="font-size:1.05rem">${esc(BODA.dresscode.titulo)}</p>
+      <p class="centro tenue">${esc(BODA.dresscode.nota)}</p>
+      <div class="colores">${BODA.dresscode.coloresReservados.map(c =>
+        `<div><i style="background:${c.hex}"></i>${esc(c.nombre)}</div>`).join("")}</div>` },
+  { ico:"🎁", titulo:"Obsequios", resumen:"Efectivo, transferencia o Diunsa", cuerpo:() => `
+      ${BODA.regalos.intro.map(p => `<p class="centro tenue">${esc(p)}</p>`).join("")}
+      ${BODA.regalos.cuentas.map(c => `<div class="cuenta">
+          <p style="font-weight:500">${esc(c.cliente)}</p>
+          <p class="tenue">Banco: ${esc(c.banco)}</p>
+          <p class="tenue">Cuenta: ${esc(c.numero)}</p>
+          <div class="fila" style="justify-content:flex-start"><button class="btn sec" data-copiar="${esc(c.numero)}">Copiar cuenta</button></div>
+        </div>`).join("")}
+      <p class="centro tenue">${esc(BODA.regalos.nota)}</p>` },
+  { ico:"💌", titulo:"Confirmar asistencia", resumen:"Déjanos saber si nos acompañas", cuerpo:() => `
+      <form id="rsvp">
+        <input name="nombre" placeholder="Tu nombre" required />
+        <input name="invitados" type="number" min="1" placeholder="Cantidad de invitados" required />
+        <select name="asistencia"><option>Confirmo asistencia</option><option>No podré asistir</option></select>
+        <input name="mensaje" placeholder="Mensaje para los novios" />
+        <button class="btn" type="submit">Confirmar asistencia</button>
+      </form>` }
+];
+
+$("#tarjetas").innerHTML = TARJETAS.map((t,i) => `
+  <article class="tarjeta">
+    <div class="ico">${t.ico}</div>
+    <h3>${esc(t.titulo)}</h3>
+    <p class="res">${esc(t.resumen)}</p>
+    <button class="btn" data-abrir="${i}">Ver más</button>
+  </article>`).join("");
+
+/* Modal */
+const overlay = $("#overlay");
+function abrirModal(i){
+  const t = TARJETAS[i];
+  $("#modalTitulo").textContent = t.titulo;
+  $("#modalCuerpo").innerHTML = t.cuerpo();
+  overlay.classList.add("abierto");
+  document.body.style.overflow = "hidden";
+}
+function cerrarModal(){
+  overlay.classList.remove("abierto");
+  $("#modalCuerpo").innerHTML = "";
+  document.body.style.overflow = "";
+}
+$("#btnCerrar").onclick = cerrarModal;
+overlay.addEventListener("click", e => { if (e.target === overlay) cerrarModal(); });
+document.addEventListener("keydown", e => { if (e.key === "Escape") cerrarModal(); });
+
+document.addEventListener("click", async (e) => {
+  const abrir = e.target.closest("[data-abrir]");
+  if (abrir) return abrirModal(+abrir.dataset.abrir);
+
+  const copiar = e.target.closest("[data-copiar]");
+  if (copiar){
+    try { await navigator.clipboard.writeText(copiar.dataset.copiar); } catch {}
+    const txt = copiar.textContent;
+    copiar.textContent = "¡Copiado!";
+    setTimeout(() => copiar.textContent = txt, 1600);
+  }
+});
+
+/* RSVP */
+document.addEventListener("submit", async (e) => {
+  if (e.target.id !== "rsvp") return;
+  e.preventDefault();
+  const form = e.target, btn = form.querySelector("button");
+  btn.disabled = true; btn.textContent = "Enviando...";
+  try { await fetch(BODA.rsvpURL, { method:"POST", mode:"no-cors", body:new FormData(form) }); } catch {}
+  $("#modalCuerpo").innerHTML = `
+    <div class="centro">
+      <p style="color:var(--olivo);font-weight:500">✔ ¡Gracias! Recibimos tu respuesta.</p>
+      <p class="tenue">Si quieres avisarnos algo más, escríbenos por WhatsApp.</p>
+      <div class="fila"><a class="btn" href="${wa}" target="_blank" rel="noreferrer">Escribir por WhatsApp</a></div>
+    </div>`;
+});
+
+/* Portada, música y pétalos */
+const audio = $("#audio");
+let petalosOn = false;
+$("#btnAbrir").onclick = () => {
+  $("#portada").remove();
+  audio.play().catch(()=>{});
+  petalosOn = true;
+};
+$("#btnMusica").onclick = () => { audio.paused ? audio.play().catch(()=>{}) : audio.pause(); };
+
+const EMOJIS = ["🌸","🌷","💮","🌺"];
+setInterval(() => {
+  if (!petalosOn || document.hidden || document.querySelectorAll(".petalo").length > 12) return;
+  const p = document.createElement("span");
+  p.className = "petalo";
+  p.textContent = EMOJIS[Math.floor(Math.random()*EMOJIS.length)];
+  p.style.left = Math.random()*100 + "vw";
+  p.style.animationDuration = (7 + Math.random()*5) + "s";
+  document.body.appendChild(p);
+  setTimeout(() => p.remove(), 12000);
+}, 1200);
+
+/* Aparición de secciones */
+const obs = new IntersectionObserver(es => es.forEach(x => x.isIntersecting && x.target.classList.add("visible")), { threshold:.15 });
+document.querySelectorAll("section").forEach(s => obs.observe(s));
+</script>
+</body>
+</html>
