@@ -82,8 +82,6 @@ const BODA = {
     nota: "También tenemos apartados en tiendas Diunsa a nombre de Daniela y José."
   },
 
-  cierre: "Gracias por acompañarnos en uno de los momentos más importantes de nuestras vidas. Estamos contando los días para compartir esta celebración con ustedes 🤍",
-
   galeria: [
     "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80",
     "https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=1200&q=80",
@@ -258,12 +256,6 @@ footer{background:#fff;text-align:center;padding:2.5rem 1rem;color:var(--suave);
   <div class="galeria" id="galeria"></div>
 </section>
 
-<!-- CIERRE -->
-<section>
-  <h2>Cuenta regresiva para nuestro gran día</h2><div class="linea"></div>
-  <p class="sub" id="cierre"></p>
-</section>
-
 <footer id="footer"></footer>
 
 <button class="flotante" id="btnMusica" aria-label="Reproducir música">🎵</button>
@@ -292,7 +284,6 @@ $("#p-fecha").textContent   = BODA.fechaTexto;
 $("#h-nombres").textContent = BODA.parejaCorta;
 $("#h-frase").textContent   = BODA.frase;
 $("#historia").textContent  = BODA.historia;
-$("#cierre").textContent    = BODA.cierre;
 $("#footer").textContent    = `Con amor, ${BODA.novio} & ${BODA.novia} 💍`;
 $("#audio").src = BODA.musica;
 $("#btnWhats").href = wa;
