@@ -82,6 +82,8 @@ const BODA = {
     nota: "También tenemos apartados en tiendas Diunsa a nombre de Daniela y José."
   },
 
+     cierre: "Gracias por acompañarnos en uno de los momentos más importantes de nuestras vidas. Estamos contando los días para compartir esta celebración con ustedes 🤍",
+
   galeria: [
     "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80",
     "https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=1200&q=80",
@@ -191,10 +193,22 @@ input,select{border:1px solid var(--borde);background:#fff;border-radius:.8rem;p
 input:focus,select:focus{border-color:var(--terracota)}
 
 /* GALERIA */
-.galeria{display:grid;gap:.8rem;grid-template-columns:repeat(2,1fr);margin-top:2rem}
-@media(min-width:768px){.galeria{grid-template-columns:repeat(4,1fr)}}
-.galeria img{border-radius:1rem;height:220px;width:100%;object-fit:cover;box-shadow:var(--sombra);transition:.3s}
-.galeria img:hover{transform:scale(1.03)}
+.galeria{position:relative;max-width:44rem;margin:2rem auto 0}
+.galeria-marco{position:relative;overflow:hidden;border-radius:1.25rem;box-shadow:var(--sombra-alta);background:#fff}
+.galeria img{width:100%;height:320px;object-fit:cover;transition:opacity .4s ease}
+.galeria-btn{position:absolute;top:50%;transform:translateY(-50%);z-index:2;width:2.8rem;height:2.8rem;
+  border:0;border-radius:999px;background:rgba(255,255,255,.9);color:var(--terracota);font-size:2rem;
+  line-height:1;display:flex;align-items:center;justify-content:center;cursor:pointer;
+  box-shadow:var(--sombra);transition:.2s}
+.galeria-btn:hover{background:var(--terracota);color:#fff;transform:translateY(-50%) scale(1.05)}
+.galeria-btn.anterior{left:.75rem}
+.galeria-btn.siguiente{right:.75rem}
+.galeria-indicadores{display:flex;justify-content:center;gap:.45rem;margin-top:1rem}
+.galeria-indicador{width:.55rem;height:.55rem;border:0;border-radius:999px;background:var(--borde);
+  padding:0;cursor:pointer;transition:.25s}
+.galeria-indicador.activo{width:1.5rem;background:var(--terracota)}
+@media(min-width:640px){.galeria img{height:460px}}
+@media(max-width:380px){.galeria img{height:280px}.galeria-btn{width:2.5rem;height:2.5rem}}
 
 footer{background:#fff;text-align:center;padding:2.5rem 1rem;color:var(--suave);font-size:.85rem;margin-top:2rem}
 
@@ -256,6 +270,12 @@ footer{background:#fff;text-align:center;padding:2.5rem 1rem;color:var(--suave);
   <div class="galeria" id="galeria"></div>
 </section>
 
+<!-- CIERRE -->
+<section>
+  <h2>Cuenta regresiva para nuestro gran día</h2><div class="linea"></div>
+  <p class="sub" id="cierre"></p>
+</section>
+
 <footer id="footer"></footer>
 
 <button class="flotante" id="btnMusica" aria-label="Reproducir música">🎵</button>
@@ -284,6 +304,7 @@ $("#p-fecha").textContent   = BODA.fechaTexto;
 $("#h-nombres").textContent = BODA.parejaCorta;
 $("#h-frase").textContent   = BODA.frase;
 $("#historia").textContent  = BODA.historia;
+$("#cierre").textContent    = BODA.cierre;
 $("#footer").textContent    = `Con amor, ${BODA.novio} & ${BODA.novia} 💍`;
 $("#audio").src = BODA.musica;
 $("#btnWhats").href = wa;
