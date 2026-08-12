@@ -267,7 +267,14 @@ footer{background:#fff;text-align:center;padding:2.5rem 1rem;color:var(--suave);
 <!-- GALERIA -->
 <section>
   <h2>Nuestros Momentos</h2><div class="linea"></div>
-  <div class="galeria" id="galeria"></div>
+  <div class="galeria" id="galeria">
+    <div class="galeria-marco">
+      <img id="fotoGaleria" src="" alt="Nuestros momentos juntos">
+      <button class="galeria-btn anterior" id="galeriaAnterior" type="button" aria-label="Foto anterior">‹</button>
+      <button class="galeria-btn siguiente" id="galeriaSiguiente" type="button" aria-label="Foto siguiente">›</button>
+    </div>
+    <div class="galeria-indicadores" id="galeriaIndicadores"></div>
+  </div>
 </section>
 
 <!-- CIERRE -->
@@ -312,8 +319,51 @@ document.title = `Save the Date | ${BODA.parejaCorta}`;
 $("#portada").style.backgroundImage = `linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),url(${BODA.fondoPortada})`;
 $("#hero").style.backgroundImage    = `linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.4)),url(${BODA.fondoHero})`;
 $("#padres").innerHTML  = BODA.padres.map(p => `<p>${esc(p)}</p>`).join("");
-$("#galeria").innerHTML = BODA.galeria.map((f,i) => `<img src="${f}" loading="lazy" alt="Foto ${i+1} de ${esc(BODA.parejaCorta)}">`).join("");
 
+/* Galería */
+let indiceGaleria = 0;
+const fotoGaleria = $("#fotoGaleria");
+const indicadoresGaleria = $("#galeriaIndicadores");
+
+function mostrarFoto(indice){
+  if (!BODA.galeria.length) return;
+  indiceGaleria = (indice + BODA.galeria.length) % BODA.galeria.length;
+
+  fotoGaleria.style.opacity = "0";
+  setTimeout(() => {
+    fotoGaleria.src = BODA.galeria[indiceGaleria];
+    fotoGaleria.alt = `Foto ${indiceGaleria + 1} de ${BODA.parejaCorta}`;
+    fotoGaleria.style.opacity = "1";
+  }, 150);
+
+  indicadoresGaleria.querySelectorAll("button").forEach((b, i) => {
+    b.classList.toggle("activo", i === indiceGaleria);
+  });
+}
+
+indicadoresGaleria.innerHTML = BODA.galeria.map((f, i) =>
+  `<button class="galeria-indicador${i === 0 ? " activo" : ""}" type="button"
+    aria-label="Ver foto ${i + 1}" data-foto="${i}"></button>`
+).join("");
+
+$("#galeriaAnterior").onclick = () => mostrarFoto(indiceGaleria - 1);
+$("#galeriaSiguiente").onclick = () => mostrarFoto(indiceGaleria + 1);
+
+indicadoresGaleria.addEventListener("click", e => {
+  const boton = e.target.closest("[data-foto]");
+  if (boton) mostrarFoto(+boton.dataset.foto);
+});
+
+mostrarFoto(0);
+
+let intervaloGaleria = setInterval(() => mostrarFoto(indiceGaleria + 1), 5000);
+
+$("#galeria").addEventListener("mouseenter", () => clearInterval(intervaloGaleria));
+$("#galeria").addEventListener("mouseleave", () => {
+  clearInterval(intervaloGaleria);
+  intervaloGaleria = setInterval(() => mostrarFoto(indiceGaleria + 1), 5000);
+});
+     
 /* Contador */
 const objetivo = new Date(BODA.fechaISO).getTime();
 function tick(){
