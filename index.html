@@ -247,6 +247,18 @@ footer{background:#fff;text-align:center;padding:2.5rem 1rem;color:var(--suave);
   color: white;
   transform: translateY(-2px);
 }
+
+/* Transición y animación para el fade + zoom de la portada */
+#portada {
+  transition: opacity 0.8s ease, transform 0.8s ease, visibility 0.8s;
+  will-change: opacity, transform;
+}
+
+#portada.ocultar {
+  opacity: 0;
+  transform: scale(1.15); /* Efecto de zoom hacia adelante */
+  pointer-events: none;    /* Desactiva los clics mientras desaparece */
+}
 </style>
 </head>
 
@@ -506,9 +518,13 @@ document.addEventListener("submit", async (e) => {
 const audio = $("#audio");
 let petalosOn = false;
 $("#btnAbrir").onclick = () => {
-  $("#portada").remove();
-  audio.play().catch(()=>{});
+  const portada = $("#portada");
+  portada.classList.add("ocultar");
+  audio.play().catch(() => {});
   petalosOn = true;
+  setTimeout(() => {
+    portada.remove();
+  }, 800);
 };
 $("#btnMusica").onclick = () => { audio.paused ? audio.play().catch(()=>{}) : audio.pause(); };
 
