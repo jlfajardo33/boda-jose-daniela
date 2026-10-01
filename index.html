@@ -33,7 +33,7 @@ const BODA = {
 
   padres: ["Edwin Fajardo & Mirian Romero", "Mario Guzman & Deris Padilla"],
 
-  historia: "Dios actua de maneras misteriosas y cuando sientes que ya no es para tí y te rindes de seguir pidiendo, Dios aparece animandote de la manera mas amorosa. Así Dios ha actuado en nuestras vidas y nos ha encontrado para estar juntos en un para siempre y queremos celebrar esta unión junto con ustedes para darle gloria a Dios por su obra.",
+  historia: "Dios actúa de maneras misteriosas y cuando sientes que ya no es para ti y te rindes de seguir pidiendo, Dios aparece animándote de la manera más amorosa. Así Dios ha actuado en nuestras vidas y nos ha encontrado para estar juntos en un para siempre y queremos celebrar esta unión junto con ustedes para darle gloria a Dios por su obra.",
 
   ceremonia: {
     titulo: "Ceremonia Religiosa",
@@ -82,29 +82,30 @@ const BODA = {
     nota: "También tenemos apartados en:"
   },
 
-     cierre: "Gracias por querer acompañarnos en uno de los momentos más importantes de nuestras vidas. Estamos contando los días para compartir esta celebración con ustedes 🤍",
+  cierre: "Gracias por querer acompañarnos en uno de los momentos más importantes de nuestras vidas. Estamos contando los días para compartir esta celebración con ustedes 🤍",
 
+  // Asegúrate de que en tu repositorio de GitHub la carpeta se llame exactamente "fotos" en minúsculas
   galeria: [
-       "https://jlfajardo33.github.io/boda-jose-daniela/Fotos/1.jpg",
-       "https://jlfajardo33.github.io/boda-jose-daniela/Fotos/2.jpg",
-       "https://jlfajardo33.github.io/boda-jose-daniela/Fotos/3.jpg",
-       "https://jlfajardo33.github.io/boda-jose-daniela/Fotos/4.jpg",
-       "https://jlfajardo33.github.io/boda-jose-daniela/Fotos/5.jpg",
-       "https://jlfajardo33.github.io/boda-jose-daniela/Fotos/6.jpg",
-       "https://jlfajardo33.github.io/boda-jose-daniela/Fotos/7.jpg",
-       "https://jlfajardo33.github.io/boda-jose-daniela/Fotos/8.jpg",
-       "https://jlfajardo33.github.io/boda-jose-daniela/Fotos/9.jpg",
-       "https://jlfajardo33.github.io/boda-jose-daniela/Fotos/10.jpg",
-       "https://jlfajardo33.github.io/boda-jose-daniela/Fotos/11.jpg",
-       "https://jlfajardo33.github.io/boda-jose-daniela/Fotos/12.jpg",
-       "https://jlfajardo33.github.io/boda-jose-daniela/Fotos/13.jpg",
-       "https://jlfajardo33.github.io/boda-jose-daniela/Fotos/14.jpg",
-       "https://jlfajardo33.github.io/boda-jose-daniela/Fotos/15.jpg",
-       "https://jlfajardo33.github.io/boda-jose-daniela/Fotos/16.jpg",
-       "https://jlfajardo33.github.io/boda-jose-daniela/Fotos/17.jpg",
-       "https://jlfajardo33.github.io/boda-jose-daniela/Fotos/18.jpg",
-       "https://jlfajardo33.github.io/boda-jose-daniela/Fotos/19.jpg",
-     ],
+    "https://jlfajardo33.github.io/boda-jose-daniela/fotos/1.jpg",
+    "https://jlfajardo33.github.io/boda-jose-daniela/fotos/2.jpg",
+    "https://jlfajardo33.github.io/boda-jose-daniela/fotos/3.jpg",
+    "https://jlfajardo33.github.io/boda-jose-daniela/fotos/4.jpg",
+    "https://jlfajardo33.github.io/boda-jose-daniela/fotos/5.jpg",
+    "https://jlfajardo33.github.io/boda-jose-daniela/fotos/6.jpg",
+    "https://jlfajardo33.github.io/boda-jose-daniela/fotos/7.jpg",
+    "https://jlfajardo33.github.io/boda-jose-daniela/fotos/8.jpg",
+    "https://jlfajardo33.github.io/boda-jose-daniela/fotos/9.jpg",
+    "https://jlfajardo33.github.io/boda-jose-daniela/fotos/10.jpg",
+    "https://jlfajardo33.github.io/boda-jose-daniela/fotos/11.jpg",
+    "https://jlfajardo33.github.io/boda-jose-daniela/fotos/12.jpg",
+    "https://jlfajardo33.github.io/boda-jose-daniela/fotos/13.jpg",
+    "https://jlfajardo33.github.io/boda-jose-daniela/fotos/14.jpg",
+    "https://jlfajardo33.github.io/boda-jose-daniela/fotos/15.jpg",
+    "https://jlfajardo33.github.io/boda-jose-daniela/fotos/16.jpg",
+    "https://jlfajardo33.github.io/boda-jose-daniela/fotos/17.jpg",
+    "https://jlfajardo33.github.io/boda-jose-daniela/fotos/18.jpg",
+    "https://jlfajardo33.github.io/boda-jose-daniela/fotos/19.jpg"
+  ],
 
   fondoPortada: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1400&q=80",
   fondoHero:    "https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=1400&q=80"
@@ -207,7 +208,7 @@ input:focus,select:focus{border-color:var(--terracota)}
 .galeria{position:relative;max-width:44rem;margin:2rem auto 0;}
 .galeria-marco{position:relative;overflow:hidden;border-radius:1.25rem;box-shadow:var(--sombra-alta);background:#fff;display:flex;
   align-items:center;justify-content:center;aspect-ratio:3 / 4;}
-.galeria img{width:100%;height:100%;object-fit:contain;object-position:center;display:block;transition:opacity .4s ease;}
+.galeria img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:opacity .4s ease;}
 .galeria-btn{position:absolute;top:50%;transform:translateY(-50%);z-index:2;width:2.8rem;height:2.8rem;
   border:0;border-radius:999px;background:rgba(255,255,255,.9);color:var(--terracota);font-size:2rem;
   line-height:1;display:flex;align-items:center;justify-content:center;cursor:pointer;
@@ -259,7 +260,6 @@ footer{background:#fff;text-align:center;padding:2.5rem 1rem;color:var(--suave);
   transform: translateY(-2px);
 }
 
-/* Transición y animación para el fade + zoom de la portada */
 #portada {
   transition: opacity 0.8s ease, transform 0.8s ease, visibility 0.8s;
   will-change: opacity, transform;
@@ -267,8 +267,8 @@ footer{background:#fff;text-align:center;padding:2.5rem 1rem;color:var(--suave);
 
 #portada.ocultar {
   opacity: 0;
-  transform: scale(1.15); /* Efecto de zoom hacia adelante */
-  pointer-events: none;    /* Desactiva los clics mientras desaparece */
+  transform: scale(1.15);
+  pointer-events: none;
 }
 </style>
 </head>
@@ -355,7 +355,7 @@ footer{background:#fff;text-align:center;padding:2.5rem 1rem;color:var(--suave);
 </div>
 
 <!-- ============================================================
-     3) LÓGICA (normalmente no necesitas tocar nada de aquí)
+     3) LÓGICA DE LA PÁGINA
      ============================================================ -->
 <script>
 const $ = (s) => document.querySelector(s);
@@ -377,111 +377,39 @@ $("#portada").style.backgroundImage = `linear-gradient(rgba(0,0,0,.55),rgba(0,0,
 $("#hero").style.backgroundImage    = `linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.4)),url(${BODA.fondoHero})`;
 $("#padres").innerHTML  = BODA.padres.map(p => `<p>${esc(p)}</p>`).join("");
 
-/* GALERÍA - CARGA ROBUSTA DE IMÁGENES */
-
+/* GALERÍA DE IMÁGENES */
 let indiceGaleria = 0;
-let cargandoGaleria = false;
-
 const fotoGaleria = $("#fotoGaleria");
 const indicadoresGaleria = $("#galeriaIndicadores");
 
-/* Agrega un parámetro único para evitar que el navegador
-   reutilice una respuesta anterior de Dropbox */
-function urlGaleria(url) {
-  const separador = url.includes("?") ? "&" : "?";
-  return `${url}${separador}galleryCache=${Date.now()}`;
-}
-
-/* Precarga una imagen antes de mostrarla */
-function precargarImagen(url) {
-  return new Promise((resolve, reject) => {
-
-    const imagen = new Image();
-
-    imagen.onload = () => resolve(url);
-
-    imagen.onerror = () => reject(new Error("No se pudo cargar la imagen"));
-
-    imagen.src = urlGaleria(url);
-  });
-}
-
-/* Mostrar fotografía */
-async function mostrarFoto(indice, forzar = false) {
-
+function mostrarFoto(indice) {
   if (!BODA.galeria.length) return;
-
-  /* Si ya estamos cargando una imagen, esperamos */
-  if (cargandoGaleria && !forzar) return;
-
-  indiceGaleria =
-    (indice + BODA.galeria.length) % BODA.galeria.length;
-
+  
+  indiceGaleria = (indice + BODA.galeria.length) % BODA.galeria.length;
   const nuevaUrl = BODA.galeria[indiceGaleria];
 
-  cargandoGaleria = true;
-
-  /* Animación de salida */
   fotoGaleria.style.opacity = "0";
 
-  try {
-
-    /* Esperamos a que Dropbox entregue la nueva imagen */
-    const urlLista = await precargarImagen(nuevaUrl);
-
-    /*
-      Solo después de que terminó de cargar
-      cambiamos la imagen visible.
-    */
-    fotoGaleria.src = urlLista;
-
-    fotoGaleria.alt =
-      `Foto ${indiceGaleria + 1} de ${BODA.parejaCorta}`;
-
-    /*
-      Esperamos un pequeño instante para que el navegador
-      registre el nuevo src antes de volver a mostrarla.
-    */
-    requestAnimationFrame(() => {
-
-      fotoGaleria.style.opacity = "1";
-
-      /* Actualizar indicadores */
-      indicadoresGaleria
-        .querySelectorAll("button")
-        .forEach((b, i) => {
-          b.classList.toggle(
-            "activo",
-            i === indiceGaleria
-          );
-        });
-
-    });
-
-  } catch (error) {
-
-    console.error(
-      "Error cargando fotografía:",
-      indiceGaleria + 1,
-      error
-    );
-
-    /*
-      Si Dropbox falla, mantenemos la fotografía actual
-      en lugar de dejar el carrusel vacío.
-    */
+  const tempImg = new Image();
+  tempImg.src = nuevaUrl;
+  
+  tempImg.onload = () => {
+    fotoGaleria.src = nuevaUrl;
+    fotoGaleria.alt = `Foto ${indiceGaleria + 1} de ${BODA.parejaCorta}`;
     fotoGaleria.style.opacity = "1";
+    
+    indicadoresGaleria.querySelectorAll("button").forEach((b, i) => {
+      b.classList.toggle("activo", i === indiceGaleria);
+    });
+  };
 
-  } finally {
-
-    cargandoGaleria = false;
-
-  }
+  tempImg.onerror = () => {
+    console.error("Error al cargar la imagen:", nuevaUrl);
+    fotoGaleria.style.opacity = "1";
+  };
 }
 
-
 /* Crear indicadores */
-
 indicadoresGaleria.innerHTML = BODA.galeria
   .map((f, i) => `
     <button
@@ -490,84 +418,30 @@ indicadoresGaleria.innerHTML = BODA.galeria
       aria-label="Ver foto ${i + 1}"
       data-foto="${i}">
     </button>
-  `)
-  .join("");
+  `).join("");
 
-
-/* BOTÓN ANTERIOR */
-
-$("#galeriaAnterior").onclick = () => {
-
-  if (cargandoGaleria) return;
-
-  mostrarFoto(indiceGaleria - 1);
-
-};
-
-
-/* BOTÓN SIGUIENTE */
-
-$("#galeriaSiguiente").onclick = () => {
-
-  if (cargandoGaleria) return;
-
-  mostrarFoto(indiceGaleria + 1);
-
-};
-
-
-/* INDICADORES */
+/* Eventos de navegación del carrusel */
+$("#galeriaAnterior").onclick = () => mostrarFoto(indiceGaleria - 1);
+$("#galeriaSiguiente").onclick = () => mostrarFoto(indiceGaleria + 1);
 
 indicadoresGaleria.addEventListener("click", e => {
-
   const boton = e.target.closest("[data-foto]");
-
-  if (!boton || cargandoGaleria) return;
-
+  if (!boton) return;
   mostrarFoto(Number(boton.dataset.foto));
-
 });
 
-
-/* CARGAR PRIMERA FOTO */
-
+/* Cargar primera foto */
 mostrarFoto(0);
 
-
-/* AUTOPLAY */
-
+/* Autoplay */
 let intervaloGaleria = setInterval(() => {
-
-  if (!cargandoGaleria) {
-    mostrarFoto(indiceGaleria + 1);
-  }
-
+  mostrarFoto(indiceGaleria + 1);
 }, 5000);
 
-
-/* PAUSAR AL PASAR EL MOUSE */
-
-$("#galeria").addEventListener("mouseenter", () => {
-
-  clearInterval(intervaloGaleria);
-
-});
-
-
-/* REANUDAR AL SALIR */
-
+$("#galeria").addEventListener("mouseenter", () => clearInterval(intervaloGaleria));
 $("#galeria").addEventListener("mouseleave", () => {
-
   clearInterval(intervaloGaleria);
-
-  intervaloGaleria = setInterval(() => {
-
-    if (!cargandoGaleria) {
-      mostrarFoto(indiceGaleria + 1);
-    }
-
-  }, 5000);
-
+  intervaloGaleria = setInterval(() => mostrarFoto(indiceGaleria + 1), 5000);
 });
      
 /* Contador */
@@ -617,7 +491,7 @@ const TARJETAS = [
         <select name="asistencia"><option>Confirmo asistencia</option><option>No podré asistir</option></select>
         <input name="mensaje" placeholder="Mensaje para los novios" />
         <button class="btn" type="submit">Confirmar asistencia</button>
-        <p>Tambien puedes confirmar dandole al botón de whatsapp y te llevará directamente a enviarnos un mensaje.</p>
+        <p style="font-size: 0.85rem; margin-top: 0.5rem;">También puedes confirmar dándole al botón de WhatsApp y te llevará directamente a enviarnos un mensaje.</p>
       </form>` }
 ];
 
