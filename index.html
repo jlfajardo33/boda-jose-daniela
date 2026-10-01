@@ -377,48 +377,197 @@ $("#portada").style.backgroundImage = `linear-gradient(rgba(0,0,0,.55),rgba(0,0,
 $("#hero").style.backgroundImage    = `linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.4)),url(${BODA.fondoHero})`;
 $("#padres").innerHTML  = BODA.padres.map(p => `<p>${esc(p)}</p>`).join("");
 
-/* Galería */
+/* GALERÍA - CARGA ROBUSTA DE IMÁGENES */
+
 let indiceGaleria = 0;
+let cargandoGaleria = false;
+
 const fotoGaleria = $("#fotoGaleria");
 const indicadoresGaleria = $("#galeriaIndicadores");
 
-function mostrarFoto(indice){
-  if (!BODA.galeria.length) return;
-  indiceGaleria = (indice + BODA.galeria.length) % BODA.galeria.length;
+/* Agrega un parámetro único para evitar que el navegador
+   reutilice una respuesta anterior de Dropbox */
+function urlGaleria(url) {
+  const separador = url.includes("?") ? "&" : "?";
+  return `${url}${separador}galleryCache=${Date.now()}`;
+}
 
-  fotoGaleria.style.opacity = "0";
-  setTimeout(() => {
-    fotoGaleria.src = BODA.galeria[indiceGaleria];
-    fotoGaleria.alt = `Foto ${indiceGaleria + 1} de ${BODA.parejaCorta}`;
-    fotoGaleria.style.opacity = "1";
-  }, 150);
+/* Precarga una imagen antes de mostrarla */
+function precargarImagen(url) {
+  return new Promise((resolve, reject) => {
 
-  indicadoresGaleria.querySelectorAll("button").forEach((b, i) => {
-    b.classList.toggle("activo", i === indiceGaleria);
+    const imagen = new Image();
+
+    imagen.onload = () => resolve(url);
+
+    imagen.onerror = () => reject(new Error("No se pudo cargar la imagen"));
+
+    imagen.src = urlGaleria(url);
   });
 }
 
-indicadoresGaleria.innerHTML = BODA.galeria.map((f, i) =>
-  `<button class="galeria-indicador${i === 0 ? " activo" : ""}" type="button"
-    aria-label="Ver foto ${i + 1}" data-foto="${i}"></button>`
-).join("");
+/* Mostrar fotografía */
+async function mostrarFoto(indice, forzar = false) {
 
-$("#galeriaAnterior").onclick = () => mostrarFoto(indiceGaleria - 1);
-$("#galeriaSiguiente").onclick = () => mostrarFoto(indiceGaleria + 1);
+  if (!BODA.galeria.length) return;
+
+  /* Si ya estamos cargando una imagen, esperamos */
+  if (cargandoGaleria && !forzar) return;
+
+  indiceGaleria =
+    (indice + BODA.galeria.length) % BODA.galeria.length;
+
+  const nuevaUrl = BODA.galeria[indiceGaleria];
+
+  cargandoGaleria = true;
+
+  /* Animación de salida */
+  fotoGaleria.style.opacity = "0";
+
+  try {
+
+    /* Esperamos a que Dropbox entregue la nueva imagen */
+    const urlLista = await precargarImagen(nuevaUrl);
+
+    /*
+      Solo después de que terminó de cargar
+      cambiamos la imagen visible.
+    */
+    fotoGaleria.src = urlLista;
+
+    fotoGaleria.alt =
+      `Foto ${indiceGaleria + 1} de ${BODA.parejaCorta}`;
+
+    /*
+      Esperamos un pequeño instante para que el navegador
+      registre el nuevo src antes de volver a mostrarla.
+    */
+    requestAnimationFrame(() => {
+
+      fotoGaleria.style.opacity = "1";
+
+      /* Actualizar indicadores */
+      indicadoresGaleria
+        .querySelectorAll("button")
+        .forEach((b, i) => {
+          b.classList.toggle(
+            "activo",
+            i === indiceGaleria
+          );
+        });
+
+    });
+
+  } catch (error) {
+
+    console.error(
+      "Error cargando fotografía:",
+      indiceGaleria + 1,
+      error
+    );
+
+    /*
+      Si Dropbox falla, mantenemos la fotografía actual
+      en lugar de dejar el carrusel vacío.
+    */
+    fotoGaleria.style.opacity = "1";
+
+  } finally {
+
+    cargandoGaleria = false;
+
+  }
+}
+
+
+/* Crear indicadores */
+
+indicadoresGaleria.innerHTML = BODA.galeria
+  .map((f, i) => `
+    <button
+      class="galeria-indicador${i === 0 ? " activo" : ""}"
+      type="button"
+      aria-label="Ver foto ${i + 1}"
+      data-foto="${i}">
+    </button>
+  `)
+  .join("");
+
+
+/* BOTÓN ANTERIOR */
+
+$("#galeriaAnterior").onclick = () => {
+
+  if (cargandoGaleria) return;
+
+  mostrarFoto(indiceGaleria - 1);
+
+};
+
+
+/* BOTÓN SIGUIENTE */
+
+$("#galeriaSiguiente").onclick = () => {
+
+  if (cargandoGaleria) return;
+
+  mostrarFoto(indiceGaleria + 1);
+
+};
+
+
+/* INDICADORES */
 
 indicadoresGaleria.addEventListener("click", e => {
+
   const boton = e.target.closest("[data-foto]");
-  if (boton) mostrarFoto(+boton.dataset.foto);
+
+  if (!boton || cargandoGaleria) return;
+
+  mostrarFoto(Number(boton.dataset.foto));
+
 });
+
+
+/* CARGAR PRIMERA FOTO */
 
 mostrarFoto(0);
 
-let intervaloGaleria = setInterval(() => mostrarFoto(indiceGaleria + 1), 5000);
 
-$("#galeria").addEventListener("mouseenter", () => clearInterval(intervaloGaleria));
-$("#galeria").addEventListener("mouseleave", () => {
+/* AUTOPLAY */
+
+let intervaloGaleria = setInterval(() => {
+
+  if (!cargandoGaleria) {
+    mostrarFoto(indiceGaleria + 1);
+  }
+
+}, 5000);
+
+
+/* PAUSAR AL PASAR EL MOUSE */
+
+$("#galeria").addEventListener("mouseenter", () => {
+
   clearInterval(intervaloGaleria);
-  intervaloGaleria = setInterval(() => mostrarFoto(indiceGaleria + 1), 5000);
+
+});
+
+
+/* REANUDAR AL SALIR */
+
+$("#galeria").addEventListener("mouseleave", () => {
+
+  clearInterval(intervaloGaleria);
+
+  intervaloGaleria = setInterval(() => {
+
+    if (!cargandoGaleria) {
+      mostrarFoto(indiceGaleria + 1);
+    }
+
+  }, 5000);
+
 });
      
 /* Contador */
