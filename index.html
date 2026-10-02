@@ -472,7 +472,7 @@ const TARJETAS = [
       <p class="centro tenue">${esc(BODA.dresscode.nota)}</p>
       <div class="colores">${BODA.dresscode.coloresReservados.map(c =>
         `<div><i style="background:${c.hex}"></i>${esc(c.nombre)}</div>`).join("")}</div>` },
-  { ico:"🎁", titulo:"Obsequios", resumen:"Efectivo, transferencia o Diunsa", cuerpo:() => `
+  { ico:"🎁", titulo:"Obsequios", resumen:"Efectivo o transferencia", cuerpo:() => `
       ${BODA.regalos.intro.map(p => `<p class="centro tenue">${esc(p)}</p>`).join("")}
       ${BODA.regalos.cuentas.map(c => `<div class="cuenta">
           <p style="font-weight:500">${esc(c.cliente)}</p>
